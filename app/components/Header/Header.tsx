@@ -56,7 +56,7 @@ export default function Header() {
       },
       {
         root: null,
-        rootMargin: "0px 0px -80% 0px", // trigger near top
+        rootMargin: "0px 0px -70% 0px", // trigger near top
         threshold: 0,
       }
     );
