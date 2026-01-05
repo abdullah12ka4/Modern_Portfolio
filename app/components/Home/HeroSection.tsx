@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin } from "lucide-react";
 import { motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Typewriter from 'typewriter-effect';
@@ -33,7 +32,9 @@ export default function HeroSection() {
 
   return (
     <div id="home" className="border-b-4 border-gray-500  section scroll-mt-16 mt-3 flex flex-col items-center pt-10 gap-4">
-        <Image src="/profile.jpg" height={200} width={200} alt="Profile Image" priority/>
+       <div className="relative h-[200px] w-[200px] rounded-full overflow-hidden bg-[#3B3A3B]">
+         <img src="/profile.png" alt="Profile Picture" className="absolute -left-1" />
+       </div>
       
       <motion.h1
         initial={{ opacity: 0, y: 40 }}

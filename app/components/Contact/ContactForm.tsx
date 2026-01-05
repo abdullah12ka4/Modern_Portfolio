@@ -2,33 +2,35 @@
 
 import { motion } from 'motion/react'
 import { Phone, Mail, MessageCircle } from 'lucide-react'
-import emailjs from '@emailjs/browser';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false)
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault()
   const form = e.currentTarget
+  const formData = new FormData(form)
   setLoading(true) // Start loading
-
-  emailjs.sendForm(
-    'service_ed4ci98', 
-    'template_bzccdzv', 
-    form, 
-    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-  )
-  .then(() => {
-    alert("Message sent successfully!")
+  const response = await fetch('/api/contact',{
+    method:"POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('text')
+    })
+  })
+  const data = await response.json();
+  setLoading(false)
+  if (data.success) {
+    toast('Message sent successfully ✅')
     form.reset()
-  })
-  .catch((error) => {
-    console.error("EmailJS Error: ", error)
-    alert("Failed to send message")
-  })
-  .finally(() => setLoading(false)) // Stop loading
+  } else {
+    toast("Failed to send message ❌");
+  }    
 }
 
   return (

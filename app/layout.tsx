@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -24,7 +25,7 @@ export default function RootLayout({
           <div className="absolute w-full top-0 ">            
                 {children}          
           </div>  
-              
+              <Toaster/>
         </div>
       </body>
     </html>

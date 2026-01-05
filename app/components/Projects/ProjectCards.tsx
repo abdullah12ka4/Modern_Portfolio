@@ -6,20 +6,20 @@ import { Github, ExternalLink } from 'lucide-react'
 export default function ProjectCards() {
   const projects = [
     {
-      title: "Modern portfolio",
-      description:
-        "A fully responsive personal portfolio built with Next.js, Tailwind CSS, and Framer Motion showcasing smooth animations and SEO optimization.",
-      tech: ["NextJS", "Tailwind", "Framer Motion"],
-      live: "https://portfolio-drab-seven-64.vercel.app/",
-      github: "https://github.com/abdullah12ka4/Portfolio",
-    },
-    {
       title: "PassOP - Password Manager",
       description:
         "A secure password manager built with React and localStorage. Easily store, view, copy, edit and delete accounts info",
-      tech: ["ReactJS", "Local Storage","React Toaster", "Responsive UI"],
+      tech: ["ReactJS", "Local Storage","React Toaster"],
       live: "https://pass-op-git-main-abdullah12ka4s-projects.vercel.app/",
       github: "https://github.com/abdullah12ka4/PassOP",
+    },
+    {
+      title: "LinkSnap - Link Shorten",
+      description:
+        "Linksnap is a web application where your long and complicated url into small and smart url that access everywhere",
+      tech: ["NextJS", "Supabase","ShadCN", "TypeScript", "Nodemailer"],
+      live: "https://linksnap-1wpiiih5h-abdullah12ka4s-projects.vercel.app/",
+      github: "https://github.com/abdullah12ka4/linksnap",
     },
   ]
 
